@@ -7,6 +7,17 @@ Stories or a DM.
 This repository contains the **built, installable web app** (a PWA). There is no
 build step, no server and no API key: serve these files over HTTPS and it works.
 
+## Live
+
+| Host | URL |
+| --- | --- |
+| Cloudflare (edge Worker + static assets) | https://site-8cac8cb2f02c4c2881b8dd3ff7c45403.freebuff.page |
+| GitHub Pages | https://kalabduke.github.io/yt-to-ig-story/ |
+
+Both serve these exact files. Only the credentials-free Cloudflare Worker in
+`worker.js` (in the build project) sits in front of the assets, purely to pin the
+manifest's content type; the GitHub Pages copy is served as plain static files.
+
 ## Use it
 
 1. Open the site on your phone.
