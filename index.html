@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0c10" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="YT → IG Story" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="description"
+      content="Turn a YouTube video into a 9:16 story card with the cover, title and channel, then share it straight into Instagram Stories."
+    />
+    <title>YouTube → Instagram Story</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+    <link rel="stylesheet" href="./studio.css" />
+    <link rel="stylesheet" href="./app.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="masthead">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path fill="#fff" d="M8 5v14l11-7z" /></svg>
+        </span>
+        <h1>YouTube → Instagram Story</h1>
+      </header>
+      <p class="tagline">
+        Paste a YouTube link and get a 1080&times;1920 story card: cover art, title, channel and a link
+        sticker. On a phone, Share hands the card straight to the Instagram app.
+      </p>
+
+      <div class="layout">
+        <div>
+          <section class="panel">
+            <h2>Video</h2>
+            <form class="link-form" id="studio-form">
+              <input
+                id="studio-url"
+                type="text"
+                inputmode="url"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="https://youtu.be/…"
+                aria-label="YouTube link"
+              />
+              <button type="button" id="studio-paste">Paste</button>
+              <button type="submit" data-primary="1">Load</button>
+            </form>
+            <p class="status" id="studio-status" role="status"></p>
+          </section>
+
+          <section class="panel">
+            <h2>Card</h2>
+            <div class="seg" role="group" aria-label="Theme">
+              <button type="button" id="studio-theme-dark" aria-pressed="true">Dark</button>
+              <button type="button" id="studio-theme-light" aria-pressed="false">Light</button>
+            </div>
+            <div class="swatches" id="studio-accents" role="group" aria-label="Accent colour"></div>
+            <div class="checks">
+              <label class="check"><input type="checkbox" id="studio-link" checked /> Link sticker</label>
+              <label class="check"><input type="checkbox" id="studio-channel" checked /> Channel name</label>
+              <label class="check"><input type="checkbox" id="studio-handle" checked /> Handle</label>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>Export</h2>
+            <div class="actions">
+              <button type="button" id="studio-share" data-primary="1" hidden>Share to Instagram</button>
+              <button type="button" id="studio-download">Download PNG</button>
+              <button type="button" id="studio-copy">Copy image</button>
+              <button type="button" id="studio-install" hidden>Add to home screen</button>
+            </div>
+          </section>
+
+          <section class="panel" id="studio-ig-panel" hidden>
+            <h2>Send to Instagram</h2>
+            <div class="actions">
+              <button type="button" id="studio-ig-story">Open Story with the card</button>
+              <button type="button" id="studio-ig-dm">Send it in a DM</button>
+            </div>
+            <p class="hint">
+              Both save the card to your photos first, then open Instagram — pick the newest image in
+              the gallery thumb. Instagram shows its own picker, so Story lets you post and DM lets you
+              choose who it goes to.
+            </p>
+          </section>
+        </div>
+
+        <div class="preview">
+          <canvas id="studio-canvas" width="1080" height="1920" aria-label="Story card preview"></canvas>
+          <p class="hint" id="studio-hint"></p>
+        </div>
+      </div>
+
+      <footer class="foot">
+        Tip: install this page from your browser menu (Add to home screen), then share a link straight
+        from the YouTube app into it — the card comes back ready to post.
+      </footer>
+      <p class="foot" id="studio-ios-note" hidden>
+        On iPhone/iPad: tap <strong>Share</strong> → <strong>Add to Home Screen</strong> to keep it
+        next to Instagram. Sharing the card <em>out</em> to Instagram works from here; iOS cannot send
+        a YouTube link <em>into</em> this app (that is an Android feature), so paste the link above.
+      </p>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

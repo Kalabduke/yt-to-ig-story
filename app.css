@@ -1,0 +1,39 @@
+/* Mobile-first tweaks on top of the shared studio styles. */
+.wrap {
+  padding: 20px 16px calc(56px + env(safe-area-inset-bottom));
+}
+
+.tagline {
+  font-size: 14px;
+}
+
+@media (max-width: 899px) {
+  /* On a phone the preview is the point: show it above the controls. */
+  .layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .layout .preview {
+    order: -1;
+  }
+
+  .preview canvas {
+    max-width: min(340px, 74vh);
+  }
+
+  .masthead h1 {
+    font-size: 17px;
+  }
+}
+
+html[data-installed="1"] #studio-install {
+  display: none;
+}
+
+.foot {
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 12.5px;
+  max-width: 70ch;
+}
